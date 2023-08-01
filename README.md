@@ -9,7 +9,7 @@ These MNIST data are commonly used to demonstrate image classification, a superv
 
 Our use of MNIST is distinct from previous uses. We are working with the images only, demonstrating unsupervised outlier/anomaly detection with isolation forests.
 
-**getMNIST.go** uses the [GoMNIST](https://github.com/petar/GoMNIST) Go package to gather the necessary study data. This program also prepares comman-delimited text files for use in the R and Python isolation forest programs.
+**getMNIST.go** uses the [GoMNIST](https://github.com/petar/GoMNIST) Go package to gather the necessary study data. This program also prepares comma-delimited text files for use in the R and Python isolation forest programs.
 
 **runIForest.R** uses the R package [Solitude](https://cran.r-project.org/web/packages/solitude/solitude.pdf) to identify outliers/anomalies across the full set of 60 thousand images.
 
