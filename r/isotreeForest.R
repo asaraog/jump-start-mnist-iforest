@@ -35,8 +35,8 @@ max_depth = ceiling(log2(nrow(training)))
 
 # fit model to training images and determine anomaly scores
 isotreeRScore <- predict(iso, training)
-iforestRScoreDF <- data.frame("isotreeRScore" = isotreeRScore)
+isotreeRScoreDF <- data.frame("isotreeRScore" = isotreeRScore)
 
-write.csv(iforestRScoreDF, file = "../results/isotreeRScores.csv", row.names = FALSE)
+write.csv(isotreeRScoreDF, file = "../results/isotreeRScores.csv", row.names = FALSE)
 
 cat("\nFinished running R isotree isolation forest . . . \n")

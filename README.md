@@ -8,17 +8,17 @@ These MNIST data are commonly used to demonstrate image classification, a superv
 
 Our use of MNIST is distinct from previous uses. Our isolation forests will be constructed with training images only, demonstrating unsupervised outlier/anomaly detection.
 
-##### Under the data directory
+### Under the data directory
 
 Compressed image and label files for MNIST. See **README.md** under this directory for addition information about the original MNIST data.
 
-###### Under the python directory
+### Under the python directory
 
 **getMNIST.py** uses the Python packages [gzip](https://github.com/petar/GoMNIST) to read the original MNIST training data. 
 
 **isolationForest.py** uses the [SciKit Learn isolation forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html) package to obtain anomaly scores for the 60 thousand training images.
 
-##### Under the r directory
+### Under the r directory
 
 **getMNIST.R** uses the R package [idx2r](https://cran.r-project.org/web/packages/idx2r/index.html) to read the original MNIST training data. 
 
@@ -26,7 +26,7 @@ Compressed image and label files for MNIST. See **README.md** under this directo
 
 **isotreeForest.R** uses the R package [isotree](https://cran.r-project.org/web/packages/isotree/isotree.pdf) to obtain anomaly scores for the 60 thousand training images.
 
-##### Under the results directory
+### Under the results directory
 
 **labels.csv** shows the digits associated with the images. Not used in isolation forests. May be useful in subsequent analyses showing which of the digits are more likely to have outliers/anomalies.
 
@@ -46,9 +46,9 @@ Results from Python and R scores are not expected to be in perfect agreement bec
 
 Initial results from Python and R solitude isolation forests are disconcerting because the anomaly score distributions have different shapes. Also, the correlation between Python and R anomaly scores is only 0.58. These results were the major reason we considered the R isotree package.
 
-Results for Python and R isotree methods were closer, with a correlation of 0.72. With additional manipulation of hyperparameter settings, we may be able to move these results closer. The R isotree package appears to be much more flexible, offering many more hyperparameter options.
+Results for Python and R isotree methods were closer, with a correlation of 0.72. With additional manipulation of hyperparameter settings, we may be able to move these results closer. The R isotree package appears to be much more customizable, offering many more hyperparameter options than the solitude package.
 
-Bottom line: More work is needed on the Python and R isolation forest programs. Also, we have the option of reviewing images that are identified as outliers or anomalous images.
+Bottom line: More work is needed on the Python and R isolation forest programs. Also, we have the option of reviewing images that are identified as outliers or anomalous images and seeing how these differ from normal images.
 
 
 
