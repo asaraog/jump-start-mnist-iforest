@@ -10,7 +10,7 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.ensemble import IsolationForest
 from sklearn.pipeline import Pipeline
-
+ 
 import getMNIST
 
 print("Running Python isolation forest . . . ")
@@ -19,13 +19,20 @@ print("Running Python isolation forest . . . ")
 CONTAMINATION_SET = "auto"  # frequency of anomalies is unknown
 MAX_SAMPLES = "auto"  # small number ensures better results
 # set to min of 256 or training sample size
-N_ESTIMATORS = 100  # another default, number of trees in ensemble
+N_ESTIMATORS = 1000  # another default, number of trees in ensemble
 # max_features will be set as recommended for random forests,
 #   the square root of the number of features in the training data: 
 #   max_features = math.trunc(training.shape[1]**0.5)
 
 # Pandas training data frame
 training = pd.DataFrame(getMNIST.images784)
+labels = pd.DataFrame(getMNIST.labels)
+
+#for filtering of digits
+# zeroindex = [i for i in range(0,60000) if labels[0][i]==0]
+# indices = pd.DataFrame({'Index':zeroindex})
+# training = training.loc[indices['Index']]
+
 
 # build anomaly detection model on training data
 SEED = np.random.RandomState(9999)

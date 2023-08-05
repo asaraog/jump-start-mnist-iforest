@@ -13,10 +13,20 @@ cat("\nRunning R isotree isolation forest . . . ")
 
 # retrieve MNIST training image objects from R binary file
 load(file = "MNIST_image_objects.RData")
+# digitLabels = read.csv("../results/labels.csv")
 
-training <- data.frame(images784)
+training <- data.frame("images"=images784)
+# training=training[training$labels==0]
+
 names(training) <- paste0("x", 1:dim(images784)[2])
 
+# for (i in range(training)) {
+#     if (digitLabels$digitlabel ==0 ) {
+#         zerotraining <- rbind(zerotraining,training[i])
+#     }
+# }
+
+# zerotraining
 # initialize random number generator for reproducibility
 SEEDSET <- 9999
 
@@ -26,7 +36,7 @@ SEEDSET <- 9999
 # the original paper had maximum depth of 8
 iso <- isolation.forest(data = training,
 sample_size = 256,
-ntrees = 100,
+ntrees = 1000,
 missing_action = "fail",
 seed = SEEDSET,
 ndim = 1,
