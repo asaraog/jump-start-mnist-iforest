@@ -15,9 +15,9 @@ Anomaly scores were sufficiently correlated across languages with the correspond
 Correlation scores for Python/Go:  0.99 \
 Correlation scores for Risotree/Go:  0.8 \
 Correlation scores for Rsolitude/Go:  0.6 \
-Correlation scores for Rsolitude/Python:  0.66 \ 
+Correlation scores for Rsolitude/Python:  0.66  \
 Correlation scores for Risotree/Python:  0.84 \
-Correlation scores for Rsisotree/Rsolitude:  0.91 \
+Correlation scores for Rsisotree/Rsolitude:  0.91 
 
 Rsolitude had the worst correlation with other models, as seen by Miller 2023.
 
@@ -32,7 +32,7 @@ Correlation scores for the digit 5:  0.92 \
 Correlation scores for the digit 6:  0.95 \
 Correlation scores for the digit 7:  0.94 \
 Correlation scores for the digit 8:  0.92 \
-Correlation scores for the digit 9:  0.95 \
+Correlation scores for the digit 9:  0.95
 
 Interestingly, the digit 2 has low correlation indicating likely higher contamination.
 
