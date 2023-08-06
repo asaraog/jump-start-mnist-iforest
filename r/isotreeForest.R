@@ -16,17 +16,7 @@ load(file = "MNIST_image_objects.RData")
 # digitLabels = read.csv("../results/labels.csv")
 
 training <- data.frame("images"=images784)
-# training=training[training$labels==0]
-
 names(training) <- paste0("x", 1:dim(images784)[2])
-
-# for (i in range(training)) {
-#     if (digitLabels$digitlabel ==0 ) {
-#         zerotraining <- rbind(zerotraining,training[i])
-#     }
-# }
-
-# zerotraining
 # initialize random number generator for reproducibility
 SEEDSET <- 9999
 
@@ -36,7 +26,7 @@ SEEDSET <- 9999
 # the original paper had maximum depth of 8
 iso <- isolation.forest(data = training,
 sample_size = 256,
-ntrees = 1000,
+ntrees = 1000, #increased 10 times as 60000 samples compared to 5000 in original paper
 missing_action = "fail",
 seed = SEEDSET,
 ndim = 1,

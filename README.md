@@ -1,4 +1,12 @@
-# jump-start-mnist-iforest
+# Isolation Forests
+
+## Project Summary
+This project aims to evaluate Go with Python and R in training isolation forests, an unsupervised learning method to identify anomalies or outliers. It was first introduced by ---.
+
+All models are benchmarked for runtime using 'time' before commands in the command line. Runtimes were significantly lower in Go.
+
+
+# MNIST data
 
 The Modified National Institute of Standards and Technology (MNIST) dataset comprises 60 thousand training observations and 10 thousand test observations
 
@@ -11,6 +19,20 @@ Our use of MNIST is distinct from previous uses. Our isolation forests will be c
 ### Under the data directory
 
 Compressed image and label files for MNIST. See **README.md** under this directory for addition information about the original MNIST data.
+
+### Under the go directory
+
+**saraogeeweek7.go:** loads MNIST training data and trains isolation forest on the whole dataset and calculates anomaly scores for each sample.
+
+**saraogeeweek7_test.go:** does unit tests for 
+
+**saraogeeweek7digit.go** loads MNIST training data and trains isolation forest for each digit and calculates anomaly scores for each sample.
+
+**saraogeeweek7digit_test.go** does unit tests for
+
+**Week7** executable for saraogeeweek7.go on whole dataset cross-compiled Go code for Mac/Windows. 
+
+**Week7digit** executable for saraogeeweek7digit.go for each digit cross-compiled Go code for Mac/Windows.
 
 ### Under the python directory
 
@@ -36,19 +58,49 @@ Compressed image and label files for MNIST. See **README.md** under this directo
 
 **isotreeRScores.csv** comma-delimited file of R isotree anomaly scores.
 
-It is sufficient to compare outlier/anomaly detection methods by examining scatterplots and correlations between the anomaly scores obtained from the Python, R, and Go isolation forest programs, recognizing that algorithms and hyperparameter settings can affect these scores. 
+**go_data.csv** comma-delimited file of Go anomaly scores.
 
-**analyzeResults.R** is an R program that analyzes the results from the Python and R isolation forests. We examine R results from both the solitude and isotree packages. We should Add the Go results after these are available.
+**analyzeResults.R** is an R program that analyzes the results from the Python, Go and R isolation forests. We examine R results from both the solitude and isotree packages. 
 
 Base R graphics are used to summarize results in portable document format (pdf) figure files.
 
-Results from Python and R scores are not expected to be in perfect agreement because the algorithms and hyperparameter sets differ.
+### Under the results/digitanalysis directory
 
-Initial results from Python and R solitude isolation forests are disconcerting because the anomaly score distributions have different shapes. Also, the correlation between Python and R anomaly scores is only 0.58. These results were the major reason we considered the R isotree package.
+**pythonScores_i.csv** comma-delimited file of Python anomaly scores for each digit i.
 
-Results for Python and R isotree methods were closer, with a correlation of 0.72. With additional manipulation of hyperparameter settings, we may be able to move these results closer. The R isotree package appears to be much more customizable, offering many more hyperparameter options than the solitude package.
+**go_data_i.csv** comma-delimited file of Go anomaly scores for each digit i.
 
-Bottom line: More work is needed on the Python and R isolation forest programs. Also, we have the option of reviewing images that are identified as outliers or anomalous images and seeing how these differ from normal images.
+**analyzedigitResults.R** is an R program that analyzes the results from the Python and Go isolation forests trained on each digit by itself.
+
+## Installation
+
+Download or git clone this project onto local machine into folder on local machine.
+```
+git clone https://github.com/asaraog/msds431week7.git
+
+cd msds431week7/go
+time ./Week7
+time ./Week7digit
+
+cd ../python
+time python3 isolateForest.py
+time python3 isolateForestdigit.py
+
+cd ../r
+time Rscript isotreeForest.R
+time Rscript solitudeForest.R
+
+cd ../results
+time Rscript analyzeResults.R
+cd digitanalysis
+time Rscript analyzeResultsdigit.R
+
+```
+
+
+## References
+
+
 
 
 

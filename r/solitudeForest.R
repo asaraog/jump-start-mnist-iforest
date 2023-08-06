@@ -23,7 +23,7 @@ SEEDSET <- 9999
 # set isolation forest hyperparameters
 iso <- isolationForest$new(
 sample_size = 256,
-num_trees = 1000,
+num_trees = 1000, #increased 10 times as 60000 samples compared to 5000 in original paper
 replace = FALSE,
 seed = SEEDSET,
 nproc = NULL,
