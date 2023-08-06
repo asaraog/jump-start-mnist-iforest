@@ -5,8 +5,9 @@ This project aims to evaluate Go with Python and R in training isolation forests
 
 All models are benchmarked for runtime using 'time' before commands in the command line. Runtimes were significantly lower in Go.
 
+## Under the data directory
 
-# MNIST data
+Compressed image and label files for MNIST. See **README.md** under this directory for addition information about the original MNIST data.
 
 The Modified National Institute of Standards and Technology (MNIST) dataset comprises 60 thousand training observations and 10 thousand test observations
 
@@ -16,11 +17,7 @@ These MNIST data are commonly used to demonstrate image classification, a superv
 
 Our use of MNIST is distinct from previous uses. Our isolation forests will be constructed with training images only, demonstrating unsupervised outlier/anomaly detection.
 
-### Under the data directory
-
-Compressed image and label files for MNIST. See **README.md** under this directory for addition information about the original MNIST data.
-
-### Under the go directory
+## Under the go directory
 
 **saraogeeweek7.go:** loads MNIST training data and trains isolation forest on the whole dataset and calculates anomaly scores for each sample.
 
@@ -34,13 +31,13 @@ Compressed image and label files for MNIST. See **README.md** under this directo
 
 **Week7digit** executable for saraogeeweek7digit.go for each digit cross-compiled Go code for Mac/Windows.
 
-### Under the python directory
+## Under the python directory
 
 **getMNIST.py** uses the Python packages [gzip](https://github.com/petar/GoMNIST) to read the original MNIST training data. 
 
 **isolationForest.py** uses the [SciKit Learn isolation forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html) package to obtain anomaly scores for the 60 thousand training images.
 
-### Under the r directory
+## Under the r directory
 
 **getMNIST.R** uses the R package [idx2r](https://cran.r-project.org/web/packages/idx2r/index.html) to read the original MNIST training data. 
 
@@ -48,7 +45,7 @@ Compressed image and label files for MNIST. See **README.md** under this directo
 
 **isotreeForest.R** uses the R package [isotree](https://cran.r-project.org/web/packages/isotree/isotree.pdf) to obtain anomaly scores for the 60 thousand training images.
 
-### Under the results directory
+## Under the results directory
 
 **labels.csv** shows the digits associated with the images. Not used in isolation forests. May be useful in subsequent analyses showing which of the digits are more likely to have outliers/anomalies.
 
@@ -64,7 +61,7 @@ Compressed image and label files for MNIST. See **README.md** under this directo
 
 Base R graphics are used to summarize results in portable document format (pdf) figure files.
 
-### Under the results/digitanalysis directory
+## Under the results/digitanalysis directory
 
 **pythonScores_i.csv** comma-delimited file of Python anomaly scores for each digit i.
 
