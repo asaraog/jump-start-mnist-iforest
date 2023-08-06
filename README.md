@@ -3,15 +3,38 @@
 ## Project Summary
 This project aims to compare [Go](./go) with [Python](./python) and [R](./r) in training isolation forests, an unsupervised learning method to identify anomalies or outliers. It was introduced by [Liu 2008](https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf) by observing that path lengths for anomalies were significantly SHORTER by averaging over many trees. He introduces an anomaly score to normalize comparisons with HIGHER scores indicating more abnormality. This project will utilize the The Modified National Institute of Standards and Technology (MNIST) dataset which comprises of 60 thousand training observations and 10 thousand test observations of handwritten digits. Our use of MNIST will be conducted on all of the 60 thousand training observations and [compared](./results) across languages for Go, Risotree, Rsolitude and Python's sklearn. An [additional analysis](./results/digitanalysis/) was carried out by running independent tests for each digit (0-9) to compare Go and Python.
 
-The [go-iforest](https://github.com/e-XpertSolutions/go-iforest) package was used for the analysis in Go. [Another package that already analyzed the MNIST dataset](https://github.com/malaschitz/randomForest/blob/master/examples/isolation2.go) was considered though was dropped because it doesn't let you change the hyperparameter for number of samples in a tree. Comparison code for Risotree, Rsolitude and Python was adapted from [Miller 2023](https://github.com/ThomasWMiller/jump-start-mnist-iforest). Hyperparameters were kept the same across languages with 1000 trees and 256 samples for each tree. For each digit, the number of trees was changed to 100 as there are 10 times fewer parameters than in the whole dataset.
+The [go-iforest](https://github.com/e-XpertSolutions/go-iforest) package was used for the analysis in Go. [Another package that already analyzed the MNIST dataset](https://github.com/malaschitz/randomForest/blob/master/examples/isolation2.go) was considered though was dropped because it doesn't let you change the hyperparameter for number of samples in a tree. [Golearn/trees](https://github.com/sjwhitworth/golearn/tree/master) was also considered due to its active development but requires the use of an outdated [dataframe](https://github.com/rocketlaunchr/dataframe-go) package for input into their FixedDataGrid format. Unit tests were successful and done to ensure the correct number of dimensions and to check for filtering. Comparison code for Risotree, Rsolitude and Python was adapted from [Miller 2023](https://github.com/ThomasWMiller/jump-start-mnist-iforest). Hyperparameters were kept the same across languages with 1000 trees and 256 samples for each tree. For each digit, the number of trees was changed to 100 as there are 10 times fewer parameters than in the whole dataset. 
 
-All models are benchmarked for runtime using 'time' before commands in the command line. Runtimes were significantly lower in Go with runtimes of __,__, ___ and ___ for Go, Risotree, Rsolitude and Python respectively. This is likely due to the goroutines utilized in the go-iforest package. With the difference in processing time, Go is strongly recommended for large datasets. Anomaly scores were sufficiently correlated across languages with the corresponding correlations calculated using R shown below:
+All models are benchmarked for runtime using 'time' before commands in the command line. Runtimes were significantly lower in Go with runtimes of 5.66s, 19.02s, 1m 17.00s and 1m 42.87s for Go, Risotree, Rsolitude and Python respectively. For the digit analysis, runtimes were 1.43s and 13.15s for Go and Python respectively. This is likely due to the goroutines utilized in the go-iforest package. With the difference in processing time, Go is strongly recommended for large datasets. It was easy to import the iforest package and can be easily integrated into the firms data processing pipeline.
 
----
+
+## Results
+
+Anomaly scores were sufficiently correlated across languages with the corresponding correlations calculated using R shown below:
+
+Correlation scores for Python/Go:  0.99 
+Correlation scores for Risotree/Go:  0.8 
+Correlation scores for Rsolitude/Go:  0.6 
+Correlation scores for Rsolitude/Python:  0.66 
+Correlation scores for Risotree/Python:  0.84 
+Correlation scores for Rsisotree/Rsolitude:  0.91
+
+Rsolitude had the worst correlation with other models, as seen by Miller 2023.
 
 The per digit correlations for anomaly scores are also reported between Python and Go here:
 
----
+Correlation scores for the digit 0:  0.9 
+Correlation scores for the digit 1:  0.95 
+Correlation scores for the digit 2:  0.86 
+Correlation scores for the digit 3:  0.91 
+Correlation scores for the digit 4:  0.9 
+Correlation scores for the digit 5:  0.92 
+Correlation scores for the digit 6:  0.95 
+Correlation scores for the digit 7:  0.94 
+Correlation scores for the digit 8:  0.92 
+Correlation scores for the digit 9:  0.95 
+
+Interestingly, the digit 2 has low correlation indicating likely higher contamination.
 
 ## Under the data directory
 
@@ -77,22 +100,23 @@ Download or git clone this project onto local machine into folder on local machi
 ```
 git clone https://github.com/asaraog/msds431week7.git
 
-cd msds431week7/go
+cd msds431week7/go/whole
 time ./Week7
+cd ../digit
 time ./Week7digit
 
-cd ../python
-time python3 isolateForest.py
-time python3 isolateForestdigit.py
+cd ../../python
+time python3 isolationForest.py
+time python3 isolationForestdigit.py
 
 cd ../r
 time Rscript isotreeForest.R
 time Rscript solitudeForest.R
 
 cd ../results
-time Rscript analyzeResults.R
+Rscript analyzeResults.R
 cd digitanalysis
-time Rscript analyzeResultsdigit.R
+Rscript analyzedigitResults.R
 
 ```
 

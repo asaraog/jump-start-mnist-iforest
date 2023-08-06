@@ -28,7 +28,7 @@ func main() {
 
 		//Export
 		scores := ExtractScores(f) //extracts scores into a [][]string for export
-		file, _ := os.Create(fmt.Sprintf("../results/digitanalysis/go_data_%d.csv", digit))
+		file, _ := os.Create(fmt.Sprintf("../../results/digitanalysis/go_data_%d.csv", digit))
 		z := csv.NewWriter(file)
 		z.WriteAll(scores)
 
@@ -48,7 +48,7 @@ func main() {
 func GetMNIST() (images [][]float64, labels []int) {
 
 	//Loads data into [][]float64
-	train, _, _ := GoMNIST.Load("../data")
+	train, _, _ := GoMNIST.Load("../../data")
 	images = make([][]float64, len(train.Images))
 	labels = make([]int, len(train.Images))
 

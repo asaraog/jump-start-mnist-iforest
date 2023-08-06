@@ -55,17 +55,6 @@ analyzeData9 <- data.frame(
 # Note that distributions of anomaly scores have different shapes
 # Are there hyperparameter settings that may bring the 
 # Python and R results closer together?
-cat("\n","Correlation scores between Python and Go running independent tests for each digit", "\n", "\n")
-cat("Correlation scores for the digit 0: ",round(with(analyzeData0,cor(scorePython0,scoreGo0)),digits = 2), "\n") #0.95
-cat("Correlation scores for the digit 1: ",round(with(analyzeData1,cor(scorePython1,scoreGo1)),digits = 2), "\n") #0.97
-cat("Correlation scores for the digit 2: ",round(with(analyzeData2,cor(scorePython2,scoreGo2)),digits = 2), "\n") #0.94
-cat("Correlation scores for the digit 3: ",round(with(analyzeData3,cor(scorePython3,scoreGo3)),digits = 2), "\n") #0.96
-cat("Correlation scores for the digit 4: ",round(with(analyzeData4,cor(scorePython4,scoreGo4)),digits = 2), "\n") #0.94
-cat("Correlation scores for the digit 5: ",round(with(analyzeData5,cor(scorePython5,scoreGo5)),digits = 2), "\n") #0.95
-cat("Correlation scores for the digit 6: ",round(with(analyzeData6,cor(scorePython6,scoreGo6)),digits = 2), "\n") #0.97
-cat("Correlation scores for the digit 7: ",round(with(analyzeData7,cor(scorePython7,scoreGo7)),digits = 2), "\n") #0.97
-cat("Correlation scores for the digit 8: ",round(with(analyzeData8,cor(scorePython8,scoreGo8)),digits = 2), "\n") #0.95
-cat("Correlation scores for the digit 9: ",round(with(analyzeData9,cor(scorePython9,scoreGo9)),digits = 2), "\n") #0.97
 
 pdf(file = "fig-scatterplot-Go-Python0-anomaly-scores.pdf", width = 11, height = 8.5)
 with(analyzeData0, plot(scoreGo0,scorePython0))
@@ -122,3 +111,15 @@ with(analyzeData9, plot(scoreGo9,scorePython9))
 title(paste("Correlation between Go and Python anomaly scores for digit 9:",
 	as.character(round(with(analyzeData9,cor(scoreGo9,scorePython9)),digits = 2))))
 dev.off()
+
+cat("\n","Correlation scores between Python and Go running independent tests for each digit", "\n", "\n")
+cat("Correlation scores for the digit 0: ",round(with(analyzeData0,cor(scorePython0,scoreGo0)),digits = 2), "\n") #0.95
+cat("Correlation scores for the digit 1: ",round(with(analyzeData1,cor(scorePython1,scoreGo1)),digits = 2), "\n") #0.97
+cat("Correlation scores for the digit 2: ",round(with(analyzeData2,cor(scorePython2,scoreGo2)),digits = 2), "\n") #0.94
+cat("Correlation scores for the digit 3: ",round(with(analyzeData3,cor(scorePython3,scoreGo3)),digits = 2), "\n") #0.96
+cat("Correlation scores for the digit 4: ",round(with(analyzeData4,cor(scorePython4,scoreGo4)),digits = 2), "\n") #0.94
+cat("Correlation scores for the digit 5: ",round(with(analyzeData5,cor(scorePython5,scoreGo5)),digits = 2), "\n") #0.95
+cat("Correlation scores for the digit 6: ",round(with(analyzeData6,cor(scorePython6,scoreGo6)),digits = 2), "\n") #0.97
+cat("Correlation scores for the digit 7: ",round(with(analyzeData7,cor(scorePython7,scoreGo7)),digits = 2), "\n") #0.97
+cat("Correlation scores for the digit 8: ",round(with(analyzeData8,cor(scorePython8,scoreGo8)),digits = 2), "\n") #0.95
+cat("Correlation scores for the digit 9: ",round(with(analyzeData9,cor(scorePython9,scoreGo9)),digits = 2), "\n") #0.97

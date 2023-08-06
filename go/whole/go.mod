@@ -1,4 +1,4 @@
-module go
+module whole
 
 go 1.20
 

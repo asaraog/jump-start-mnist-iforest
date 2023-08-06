@@ -1,4 +1,0 @@
-# Isolation Forests
-
-## Project Summary
-
