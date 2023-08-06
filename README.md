@@ -1,9 +1,17 @@
 # Isolation Forests
 
 ## Project Summary
-This project aims to compare Go with Python and R in training isolation forests, an unsupervised learning method to identify anomalies or outliers. It was first introduced by Liu 2008 by observing that path lengths for anomalies were significantly SHORTER by averaging over many trees. He introduces an anomaly score to normalize comparisons with HIGHER scores indicating more abnormality. This project will utilize the The Modified National Institute of Standards and Technology (MNIST) dataset which comprises of 60 thousand training observations and 10 thousand test observations of handwritten digits. Our use of MNIST will be conducted on the 60 thousand training observations only. An additional analysis was carried out by running independent tests for each digit (0-9) to compare Go and Python.
+This project aims to compare [Go](./go) with [Python](./python) and [R](./r) in training isolation forests, an unsupervised learning method to identify anomalies or outliers. It was first introduced by Liu 2008 by observing that path lengths for anomalies were significantly SHORTER by averaging over many trees. He introduces an anomaly score to normalize comparisons with HIGHER scores indicating more abnormality. This project will utilize the The Modified National Institute of Standards and Technology (MNIST) dataset which comprises of 60 thousand training observations and 10 thousand test observations of handwritten digits. Our use of MNIST will be conducted on all of the 60 thousand training observations and [compared](./results) across languages for Go, Risotree, Rsolitude and Python's sklearn. An [additional analysis](./results/digitanalysis/) was carried out by running independent tests for each digit (0-9) to compare Go and Python.
 
-All models are benchmarked for runtime using 'time' before commands in the command line. Runtimes were significantly lower in Go.
+The [go-iforest](https://github.com/e-XpertSolutions/go-iforest) package was used for the analysis in Go. [Another package that already analyzed the MNIST dataset](https://github.com/malaschitz/randomForest/blob/master/examples/isolation2.go) was considered though was dropped because it doesn't let you change the hyperparameter for number of samples in a tree. Comparison code for Risotree, Rsolitude and Python was adapted from [Miller 2023](https://github.com/ThomasWMiller/jump-start-mnist-iforest). Hyperparameters were kept the same across languages with 1000 trees and 256 samples for each tree. For each digit, the number of trees was changed to 100 as there are 10 times fewer parameters than in the whole dataset.
+
+All models are benchmarked for runtime using 'time' before commands in the command line. Runtimes were significantly lower in Go with runtimes of __,__, ___ and ___ for Go, Risotree, Rsolitude and Python respectively. This is likely due to the goroutines utilized in the go-iforest package. With the difference in processing time, Go is strongly recommended for large datasets. Anomaly scores were sufficiently correlated across languages with the corresponding correlations below:
+
+---
+
+The per digit correlations for anomaly scores are also reported between Python and Go here:
+
+---
 
 ## Under the data directory
 
