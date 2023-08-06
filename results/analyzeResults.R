@@ -63,8 +63,8 @@ dev.off()
 
 cat("\n","Correlation scores between Python and Go running independent tests for whole dataset", "\n", "\n")
 cat("Correlation scores for Python/Go: ",round(with(analyzeData,cor(scorePython,scoreGo)),digits = 2), "\n") #0.99
-cat("Correlation scores for Risotree/Go: ",round(with(analyzeData,cor(scoreIsotreeR,scoreGo)),digits = 2), "\n") #0.8
-cat("Correlation scores for Rsolitude/Go: ",round(with(analyzeData,cor(scoreSolitudeR,scoreGo)),digits = 2), "\n") #0.6
+cat("Correlation scores for Risotree/Go: ",round(with(analyzeData,cor(scoreIsotreeR,scoreGo)),digits = 2), "\n") #0.79
+cat("Correlation scores for Rsolitude/Go: ",round(with(analyzeData,cor(scoreSolitudeR,scoreGo)),digits = 2), "\n") #0.59
 cat("Correlation scores for Rsolitude/Python: ",round(with(analyzeData,cor(scorePython,scoreSolitudeR)),digits = 2), "\n") #0.66
 cat("Correlation scores for Risotree/Python: ",round(with(analyzeData,cor(scorePython,scoreIsotreeR)),digits = 2), "\n") #0.84
 cat("Correlation scores for Rsisotree/Rsolitude: ",round(with(analyzeData,cor(scoreIsotreeR,scoreSolitudeR)),digits = 2), "\n") #0.91
