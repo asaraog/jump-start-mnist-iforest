@@ -21,20 +21,48 @@ Correlation scores for Rsisotree/Rsolitude:  0.91
 
 Rsolitude had the worst correlation with other models, as seen by Miller 2023.
 
-The per digit correlations for anomaly scores are also reported between Python and Go here:
+Correlation scores between Python and Go running independent tests for each digit with average 0.92:
 
-Correlation scores for the digit 0:  0.9 \
+Correlation scores for the digit 0:  0.89 \
 Correlation scores for the digit 1:  0.95 \
-Correlation scores for the digit 2:  0.86 \
-Correlation scores for the digit 3:  0.91 \
+Correlation scores for the digit 2:  0.88 \
+Correlation scores for the digit 3:  0.93 \
 Correlation scores for the digit 4:  0.9 \
 Correlation scores for the digit 5:  0.92 \
-Correlation scores for the digit 6:  0.95 \
+Correlation scores for the digit 6:  0.94 \
 Correlation scores for the digit 7:  0.94 \
-Correlation scores for the digit 8:  0.92 \
-Correlation scores for the digit 9:  0.95
+Correlation scores for the digit 8:  0.91 \
+Correlation scores for the digit 9:  0.94 
 
-Interestingly, the digit 2 has low correlation indicating likely higher contamination.
+Correlation scores between Python and Risotree running independent tests for each digit with average 0.67 
+ 
+Correlation scores for the digit 0:  0.43 \
+Correlation scores for the digit 1:  0.77 \
+Correlation scores for the digit 2:  0.48 \
+Correlation scores for the digit 3:  0.66 \
+Correlation scores for the digit 4:  0.61 \
+Correlation scores for the digit 5:  0.69 \
+Correlation scores for the digit 6:  0.73 \
+Correlation scores for the digit 7:  0.68 \
+Correlation scores for the digit 8:  0.7 \
+Correlation scores for the digit 9:  0.74 
+
+Correlation scores between Risotree and Go running independent tests for each digit with average 0.65 
+ 
+Correlation scores for the digit 0:  0.42 \
+Correlation scores for the digit 1:  0.75 \
+Correlation scores for the digit 2:  0.46 \
+Correlation scores for the digit 3:  0.61 \
+Correlation scores for the digit 4:  0.59 \
+Correlation scores for the digit 5:  0.67 \
+Correlation scores for the digit 6:  0.69 \
+Correlation scores for the digit 7:  0.68 \
+Correlation scores for the digit 8:  0.7 \
+Correlation scores for the digit 9:  0.72
+
+Interestingly, the digits 0 and 2 have low correlation indicating likely higher contamination.
+
+**It is important to note that the correlation scores could be high but still indicate poor anomaly detection. This is because the hyperparameters can be manipulated (sample size, number of trees, contamination) to have normal scores for all samples. For a rigorous treatment, outlier images should be compared across languages.**
 
 ## Under the data directory
 

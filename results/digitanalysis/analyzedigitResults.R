@@ -19,107 +19,92 @@ py6 = read.csv("pythonScores_6.csv")
 py7 = read.csv("pythonScores_7.csv")
 py8 = read.csv("pythonScores_8.csv")
 py9 = read.csv("pythonScores_9.csv")
-  
+r0 = read.csv("isotreeRScores_0.csv")
+r1 = read.csv("isotreeRScores_1.csv")
+r2 = read.csv("isotreeRScores_2.csv")
+r3 = read.csv("isotreeRScores_3.csv")
+r4 = read.csv("isotreeRScores_4.csv")
+r5 = read.csv("isotreeRScores_5.csv")
+r6 = read.csv("isotreeRScores_6.csv")
+r7 = read.csv("isotreeRScores_7.csv")
+r8 = read.csv("isotreeRScores_8.csv")
+r9 = read.csv("isotreeRScores_9.csv")
+
 # merge the scoring data  
 analyzeData0 <- data.frame(
 	"scorePython0" = py0$iforestPythonScore,
-	"scoreGo0"= go0$scores)
+	"scoreGo0"= go0$scores,
+	"scoreR0"=r0$isotreeRScore)
 analyzeData1 <- data.frame(
 	"scorePython1" = py1$iforestPythonScore,
-	"scoreGo1"= go1$scores)
+	"scoreGo1"= go1$scores,
+	"scoreR1"=r1$isotreeRScore)
 analyzeData2 <- data.frame(
 	"scorePython2" = py2$iforestPythonScore,
-	"scoreGo2"= go2$scores)
+	"scoreGo2"= go2$scores,
+	"scoreR2"=r2$isotreeRScore)
 analyzeData3 <- data.frame(
 	"scorePython3" = py3$iforestPythonScore,
-	"scoreGo3"= go3$scores)
+	"scoreGo3"= go3$scores,
+	"scoreR3"=r3$isotreeRScore)
 analyzeData4 <- data.frame(
 	"scorePython4" = py4$iforestPythonScore,
-	"scoreGo4"= go4$scores)
+	"scoreGo4"= go4$scores,
+	"scoreR4"=r4$isotreeRScore)
 analyzeData5 <- data.frame(
 	"scorePython5" = py5$iforestPythonScore,
-	"scoreGo5"= go5$scores)
+	"scoreGo5"= go5$scores,
+	"scoreR5"=r5$isotreeRScore)
 analyzeData6 <- data.frame(
 	"scorePython6" = py6$iforestPythonScore,
-	"scoreGo6"= go6$scores)
+	"scoreGo6"= go6$scores,
+	"scoreR6"=r6$isotreeRScore)
 analyzeData7 <- data.frame(
 	"scorePython7" = py7$iforestPythonScore,
-	"scoreGo7"= go7$scores)
+	"scoreGo7"= go7$scores,
+	"scoreR7"=r7$isotreeRScore)
 analyzeData8 <- data.frame(
 	"scorePython8" = py8$iforestPythonScore,
-	"scoreGo8"= go8$scores)
+	"scoreGo8"= go8$scores,
+	"scoreR8"=r8$isotreeRScore)
 analyzeData9 <- data.frame(
 	"scorePython9" = py9$iforestPythonScore,
-	"scoreGo9"= go9$scores)
+	"scoreGo9"= go9$scores,
+	"scoreR9"=r9$isotreeRScore)
 
-# Note that distributions of anomaly scores have different shapes
-# Are there hyperparameter settings that may bring the 
-# Python and R results closer together?
 
-pdf(file = "fig-scatterplot-Go-Python0-anomaly-scores.pdf", width = 11, height = 8.5)
-with(analyzeData0, plot(scoreGo0,scorePython0))
-title(paste("Correlation between Go and Python anomaly scores for digit 0:",
-	as.character(round(with(analyzeData0,cor(scoreGo0,scorePython0)),digits = 2))))
-dev.off()
-pdf(file = "fig-scatterplot-Go-Python1-anomaly-scores.pdf", width = 11, height = 8.5)
-with(analyzeData1, plot(scoreGo1,scorePython1))
-title(paste("Correlation between Go and Python anomaly scores for digit 1:",
-	as.character(round(with(analyzeData1,cor(scoreGo1,scorePython1)),digits = 2))))
-dev.off()
-pdf(file = "fig-scatterplot-Go-Python2-anomaly-scores.pdf", width = 11, height = 8.5)
-with(analyzeData2, plot(scoreGo2,scorePython2))
-title(paste("Correlation between Go and Python anomaly scores for digit 2:",
-	as.character(round(with(analyzeData2,cor(scoreGo2,scorePython2)),digits = 2))))
-dev.off()
-pdf(file = "fig-scatterplot-Go-Python3-anomaly-scores.pdf", width = 11, height = 8.5)
-with(analyzeData3, plot(scoreGo3,scorePython3))
-title(paste("Correlation between Go and Python anomaly scores for digit 3:",
-	as.character(round(with(analyzeData3,cor(scoreGo3,scorePython3)),digits = 2))))
-dev.off()
-pdf(file = "fig-scatterplot-Go-Python4-anomaly-scores.pdf", width = 11, height = 8.5)
-with(analyzeData4, plot(scoreGo4,scorePython4))
-title(paste("Correlation between Go and Python anomaly scores for digit 4:",
-	as.character(round(with(analyzeData4,cor(scoreGo4,scorePython4)),digits = 2))))
-dev.off()
+cat("\n","Correlation scores between Python and Go running independent tests for each digit with average 0.92", "\n", "\n")
+cat("Correlation scores for the digit 0: ",round(with(analyzeData0,cor(scorePython0,scoreGo0)),digits = 2), "\n") #0.89
+cat("Correlation scores for the digit 1: ",round(with(analyzeData1,cor(scorePython1,scoreGo1)),digits = 2), "\n") #0.95
+cat("Correlation scores for the digit 2: ",round(with(analyzeData2,cor(scorePython2,scoreGo2)),digits = 2), "\n") #0.88
+cat("Correlation scores for the digit 3: ",round(with(analyzeData3,cor(scorePython3,scoreGo3)),digits = 2), "\n") #0.93
+cat("Correlation scores for the digit 4: ",round(with(analyzeData4,cor(scorePython4,scoreGo4)),digits = 2), "\n") #0.9
+cat("Correlation scores for the digit 5: ",round(with(analyzeData5,cor(scorePython5,scoreGo5)),digits = 2), "\n") #0.92
+cat("Correlation scores for the digit 6: ",round(with(analyzeData6,cor(scorePython6,scoreGo6)),digits = 2), "\n") #0.94
+cat("Correlation scores for the digit 7: ",round(with(analyzeData7,cor(scorePython7,scoreGo7)),digits = 2), "\n") #0.94
+cat("Correlation scores for the digit 8: ",round(with(analyzeData8,cor(scorePython8,scoreGo8)),digits = 2), "\n") #0.91
+cat("Correlation scores for the digit 9: ",round(with(analyzeData9,cor(scorePython9,scoreGo9)),digits = 2), "\n") #0.94
 
-pdf(file = "fig-scatterplot-Go-Python5-anomaly-scores.pdf", width = 11, height = 8.5)
-with(analyzeData5, plot(scoreGo5,scorePython5))
-title(paste("Correlation between Go and Python anomaly scores for digit 5:",
-	as.character(round(with(analyzeData5,cor(scoreGo5,scorePython5)),digits = 2))))
-dev.off()
+cat("\n","Correlation scores between Python and Risotree running independent tests for each digit with average 0.67", "\n", "\n")
+cat("Correlation scores for the digit 0: ",round(with(analyzeData0,cor(scorePython0,scoreR0)),digits = 2), "\n") #0.43
+cat("Correlation scores for the digit 1: ",round(with(analyzeData1,cor(scorePython1,scoreR1)),digits = 2), "\n") #0.77
+cat("Correlation scores for the digit 2: ",round(with(analyzeData2,cor(scorePython2,scoreR2)),digits = 2), "\n") #0.48
+cat("Correlation scores for the digit 3: ",round(with(analyzeData3,cor(scorePython3,scoreR3)),digits = 2), "\n") #0.66
+cat("Correlation scores for the digit 4: ",round(with(analyzeData4,cor(scorePython4,scoreR4)),digits = 2), "\n") #0.61
+cat("Correlation scores for the digit 5: ",round(with(analyzeData5,cor(scorePython5,scoreR5)),digits = 2), "\n") #0.69
+cat("Correlation scores for the digit 6: ",round(with(analyzeData6,cor(scorePython6,scoreR6)),digits = 2), "\n") #0.73
+cat("Correlation scores for the digit 7: ",round(with(analyzeData7,cor(scorePython7,scoreR7)),digits = 2), "\n") #0.68
+cat("Correlation scores for the digit 8: ",round(with(analyzeData8,cor(scorePython8,scoreR8)),digits = 2), "\n") #0.7
+cat("Correlation scores for the digit 9: ",round(with(analyzeData9,cor(scorePython9,scoreR9)),digits = 2), "\n") #0.74
 
-pdf(file = "fig-scatterplot-Go-Python6-anomaly-scores.pdf", width = 11, height = 8.5)
-with(analyzeData6, plot(scoreGo6,scorePython6))
-title(paste("Correlation between Go and Python anomaly scores for digit 6:",
-	as.character(round(with(analyzeData6,cor(scoreGo6,scorePython6)),digits = 2))))
-dev.off()
-
-pdf(file = "fig-scatterplot-Go-Python7-anomaly-scores.pdf", width = 11, height = 8.5)
-with(analyzeData7, plot(scoreGo7,scorePython7))
-title(paste("Correlation between Go and Python anomaly scores for digit 7:",
-	as.character(round(with(analyzeData7,cor(scoreGo7,scorePython7)),digits = 2))))
-dev.off()
-
-pdf(file = "fig-scatterplot-Go-Python8-anomaly-scores.pdf", width = 11, height = 8.5)
-with(analyzeData8, plot(scoreGo8,scorePython8))
-title(paste("Correlation between Go and Python anomaly scores for digit 8:",
-	as.character(round(with(analyzeData8,cor(scoreGo8,scorePython8)),digits = 2))))
-dev.off()
-
-pdf(file = "fig-scatterplot-Go-Python9-anomaly-scores.pdf", width = 11, height = 8.5)
-with(analyzeData9, plot(scoreGo9,scorePython9))
-title(paste("Correlation between Go and Python anomaly scores for digit 9:",
-	as.character(round(with(analyzeData9,cor(scoreGo9,scorePython9)),digits = 2))))
-dev.off()
-
-cat("\n","Correlation scores between Python and Go running independent tests for each digit", "\n", "\n")
-cat("Correlation scores for the digit 0: ",round(with(analyzeData0,cor(scorePython0,scoreGo0)),digits = 2), "\n") #0.95
-cat("Correlation scores for the digit 1: ",round(with(analyzeData1,cor(scorePython1,scoreGo1)),digits = 2), "\n") #0.97
-cat("Correlation scores for the digit 2: ",round(with(analyzeData2,cor(scorePython2,scoreGo2)),digits = 2), "\n") #0.94
-cat("Correlation scores for the digit 3: ",round(with(analyzeData3,cor(scorePython3,scoreGo3)),digits = 2), "\n") #0.96
-cat("Correlation scores for the digit 4: ",round(with(analyzeData4,cor(scorePython4,scoreGo4)),digits = 2), "\n") #0.94
-cat("Correlation scores for the digit 5: ",round(with(analyzeData5,cor(scorePython5,scoreGo5)),digits = 2), "\n") #0.95
-cat("Correlation scores for the digit 6: ",round(with(analyzeData6,cor(scorePython6,scoreGo6)),digits = 2), "\n") #0.97
-cat("Correlation scores for the digit 7: ",round(with(analyzeData7,cor(scorePython7,scoreGo7)),digits = 2), "\n") #0.97
-cat("Correlation scores for the digit 8: ",round(with(analyzeData8,cor(scorePython8,scoreGo8)),digits = 2), "\n") #0.95
-cat("Correlation scores for the digit 9: ",round(with(analyzeData9,cor(scorePython9,scoreGo9)),digits = 2), "\n") #0.97
+cat("\n","Correlation scores between Risotree and Go running independent tests for each digit with average 0.65", "\n", "\n")
+cat("Correlation scores for the digit 0: ",round(with(analyzeData0,cor(scoreR0,scoreGo0)),digits = 2), "\n") #0.42
+cat("Correlation scores for the digit 1: ",round(with(analyzeData1,cor(scoreR1,scoreGo1)),digits = 2), "\n") #0.75
+cat("Correlation scores for the digit 2: ",round(with(analyzeData2,cor(scoreR2,scoreGo2)),digits = 2), "\n") #0.46
+cat("Correlation scores for the digit 3: ",round(with(analyzeData3,cor(scoreR3,scoreGo3)),digits = 2), "\n") #0.61
+cat("Correlation scores for the digit 4: ",round(with(analyzeData4,cor(scoreR4,scoreGo4)),digits = 2), "\n") #0.59
+cat("Correlation scores for the digit 5: ",round(with(analyzeData5,cor(scoreR5,scoreGo5)),digits = 2), "\n") #0.67
+cat("Correlation scores for the digit 6: ",round(with(analyzeData6,cor(scoreR6,scoreGo6)),digits = 2), "\n") #0.69
+cat("Correlation scores for the digit 7: ",round(with(analyzeData7,cor(scoreR7,scoreGo7)),digits = 2), "\n") #0.68
+cat("Correlation scores for the digit 8: ",round(with(analyzeData8,cor(scoreR8,scoreGo8)),digits = 2), "\n") #0.7
+cat("Correlation scores for the digit 9: ",round(with(analyzeData9,cor(scoreR9,scoreGo9)),digits = 2), "\n") #0.72
