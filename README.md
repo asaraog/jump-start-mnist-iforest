@@ -1,21 +1,13 @@
 # Isolation Forests
 
 ## Project Summary
-This project aims to evaluate Go with Python and R in training isolation forests, an unsupervised learning method to identify anomalies or outliers. It was first introduced by ---.
+This project aims to compare Go with Python and R in training isolation forests, an unsupervised learning method to identify anomalies or outliers. It was first introduced by Liu 2008 by observing that path lengths for anomalies were significantly SHORTER by averaging over many trees. He introduces an anomaly score to normalize comparisons with HIGHER scores indicating more abnormality. This project will utilize the The Modified National Institute of Standards and Technology (MNIST) dataset which comprises of 60 thousand training observations and 10 thousand test observations of handwritten digits. Our use of MNIST will be conducted on the 60 thousand training observations only. An additional analysis was carried out by running independent tests for each digit (0-9) to compare Go and Python.
 
 All models are benchmarked for runtime using 'time' before commands in the command line. Runtimes were significantly lower in Go.
 
 ## Under the data directory
 
 Compressed image and label files for MNIST. See **README.md** under this directory for addition information about the original MNIST data.
-
-The Modified National Institute of Standards and Technology (MNIST) dataset comprises 60 thousand training observations and 10 thousand test observations
-
-Each observation image includes a 28-by-28 grid of pixel values. Black (value 255) represents a foreground pixel for a digit, and white (value 0) the background. The labels associated with the images represent digits are 0 through 9.
-
-These MNIST data are commonly used to demonstrate image classification, a supervised learning task. Classificaton models are trained on the labeled training observations and tested on the labeled test observations. Labels are central to supervised learning methods.
-
-Our use of MNIST is distinct from previous uses. Our isolation forests will be constructed with training images only, demonstrating unsupervised outlier/anomaly detection.
 
 ## Under the go directory
 
@@ -36,6 +28,8 @@ Our use of MNIST is distinct from previous uses. Our isolation forests will be c
 **getMNIST.py** uses the Python packages [gzip](https://github.com/petar/GoMNIST) to read the original MNIST training data. 
 
 **isolationForest.py** uses the [SciKit Learn isolation forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html) package to obtain anomaly scores for the 60 thousand training images.
+
+**isolationForestdigit.py** uses the [SciKit Learn isolation forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html) package to obtain anomaly scores for each digit subset for the 60 thousand training images.
 
 ## Under the r directory
 
@@ -94,12 +88,9 @@ time Rscript analyzeResultsdigit.R
 
 ```
 
-
 ## References
 
-
-
-
+Liu, Fei Tony, Kai Ming Ting, and Zhi-Hua Zhou. 2008. [“Isolation Forest.”](https://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/icdm08b.pdf). In ICDM '08: Proceedings of the 2008 Eighth IEEE International Conference on Data Mining, December 2008, 413–422.
 
 
 
